@@ -1,0 +1,79 @@
+﻿<Window x:Class="Flagellant.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="503" Width="1000">
+    <StackPanel>
+        <Grid HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="ListBox">
+                    <Setter Property="Margin" Value="10"/>
+                    <Setter Property="Height" Value="150"/>
+                    <Setter Property="BorderBrush" Value="Aqua"/>
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="10"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="Width" Value="Auto"/>
+                </Style>
+            </Grid.Resources>
+            <StackPanel Grid.Column="0">
+                <TextBlock HorizontalAlignment="Center" Margin="0 10 0 0" Height="20">Slacking processes</TextBlock>
+                <ListBox Name="textBoxLeft"></ListBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <Button Name="moveLeftButtonLeft" Click="moveLeftButtonLeft_Click">&lt;&lt;</Button>
+                <Button Name="moveRightButtonLeft" Click="moveRightButtonLeft_Click">&gt;&gt;</Button>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <WrapPanel Height="30">
+                    <TextBox FontSize="10" Name="textBoxURLInput" Height="20" Width="200" Margin="5 0 0 0"></TextBox>
+                    <Button Name="buttonURLInput" Content="Push URL" FontSize="10" 
+                            Height="20" Margin="5" Click="buttonURLInput_Click" />
+                </WrapPanel>
+                <ListBox Name="textBoxMiddle"></ListBox>
+            </StackPanel>
+            <StackPanel Grid.Column="3" VerticalAlignment="Center">
+                <Button Name="moveRightButtonRight" Click="moveRightButtonRight_Click">&lt;&lt;</Button>
+                <Button Name="moveLeftButtonRight" Click="moveLeftButtonRight_Click">&gt;&gt;</Button>
+            </StackPanel>
+            <StackPanel Grid.Column="4">
+                <TextBlock HorizontalAlignment="Center" Height="20" Margin="0 10 0 0">Working processes</TextBlock>
+                <ListBox Name="textBoxRight"></ListBox>
+            </StackPanel>
+        </Grid>
+        <WrapPanel Name="panelOptions" Height="Auto">
+            <Image Source="E:\bedzie\C#\Desktop\Flagellant\Flagellant\voice_icon.jpg" Width="20" Height="20" Margin="10 0 0 0"/>
+            <Slider Name="sliderSound" Height="25" Width="100" Minimum="0" Maximum="100" Margin="10 0 0 0"
+                    SmallChange="1" LargeChange="10" Value="50" TickFrequency="10" TickPlacement="BottomRight"
+                    IsEnabled="True"/>
+            <CheckBox Name="checkBoxSound" VerticalAlignment="Center" IsChecked="True">Use sound</CheckBox>
+            <Button Name="buttonBeginWork" Click="buttonBeginWork_Click" Width="Auto" Height="30" Margin="10" >Begin work goddamit!</Button>
+            <Border BorderThickness="1" BorderBrush="Black" Margin="5" >
+                <StackPanel Name="panelBoxes" Margin="5">
+                    <CheckBox Name="checkBoxWork" VerticalAlignment="Center" IsChecked="True">Track workflow</CheckBox>
+                 </StackPanel>
+            </Border>
+        </WrapPanel>
+        <ScrollViewer Height="200">
+            <StackPanel Name="panelBuildersUI" Margin="5">
+                <Panel.Resources>
+                    <Style TargetType="WrapPanel">
+                        <Setter Value="5" Property="Margin"/>
+                    </Style>
+                </Panel.Resources>
+            </StackPanel>
+        </ScrollViewer>
+        <TextBox Name="textBoxLogger" Width="Auto" Height="100" TextWrapping="Wrap" Margin="10" VerticalScrollBarVisibility="Auto"/>
+        <Button Name="buttonTest" Content="TEST" Click="buttonTest_Click"/>
+    </StackPanel>
+</Window>
